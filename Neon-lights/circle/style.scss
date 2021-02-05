@@ -1,0 +1,62 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body
+{
+    height: 100vh;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.circle
+{
+    background: transparent;
+    padding: 100px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: inset 0 0 5px rgb(3, 255, 87),
+                0 0 25px rgb(3, 255, 87),
+                inset 0 0 50px rgb(3, 255, 87),
+                0 0 200px rgb(3, 255, 87);
+    cursor: pointer;
+    transition: 0.5s;
+    animation-name: animate;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    transition: 1s;
+}
+@keyframes animate
+{
+    0%, 100%
+    {
+        box-shadow: inset 0 0 5px rgb(3, 255, 87),
+                    0 0 25px rgb(3, 255, 87),
+                    inset 0 0 50px rgb(3, 255, 87),
+                    0 0 200px rgb(3, 255, 87);
+    }
+    25%
+    {
+        box-shadow: inset 0 0 5px rgb(3, 163, 255),
+                    0 0 25px  rgb(3, 163, 255),
+                    inset 0 0 50px rgb(3, 163, 255),
+                    0 0 200px  rgb(3, 163, 255);
+    }
+    50%
+    {
+        box-shadow: inset 0 0 5px rgb(255, 62, 3),
+                    0 0 25px rgb(255, 3, 3),
+                    inset 0 0 50px rgb(255, 3, 3),
+                    0 0 200px rgb(255, 3, 3);
+    }
+    75%
+    {
+        box-shadow: inset 0 0 5px rgb(133, 3, 255),
+                    0 0 25px rgb(133, 3, 255),
+                    inset 0 0 50px rgb(133, 3, 255),
+                    0 0 200px rgb(133, 3, 255);
+    }
+}

@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: black;
+}
+
+.line, .line1, .line2, .line3 {
+  position: fixed;
+  -webkit-animation: animate 5s linear infinite;
+          animation: animate 5s linear infinite;
+  background: -webkit-gradient(linear, left bottom, left top, from(#ff4646), to(#3e3ef8));
+  background: linear-gradient(to top, #ff4646, #3e3ef8);
+}
+
+.line {
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 10px;
+}
+
+.line1 {
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 10px;
+}
+
+.line2 {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+}
+
+.line3 {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+}
+
+@-webkit-keyframes animate {
+  0%, 100% {
+    -webkit-filter: hue-rotate(0deg);
+            filter: hue-rotate(0deg);
+  }
+  50% {
+    -webkit-filter: hue-rotate(360deg);
+            filter: hue-rotate(360deg);
+  }
+}
+
+@keyframes animate {
+  0%, 100% {
+    -webkit-filter: hue-rotate(0deg);
+            filter: hue-rotate(0deg);
+  }
+  50% {
+    -webkit-filter: hue-rotate(360deg);
+            filter: hue-rotate(360deg);
+  }
+}
+
+.line:after, .line1:after, .line2:after, .line3:after {
+  position: fixed;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: -webkit-gradient(linear, left bottom, left top, from(#ff4646), to(#3e3ef8));
+  background: linear-gradient(to top, #ff4646, #3e3ef8);
+  -webkit-filter: blur(30px);
+          filter: blur(30px);
+}
+
+.line:before, .line1:before, .line2:before, .line3:before {
+  position: fixed;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: -webkit-gradient(linear, left bottom, left top, from(#ff4646), to(#3e3ef8));
+  background: linear-gradient(to top, #ff4646, #3e3ef8);
+  -webkit-filter: blur(10px);
+          filter: blur(10px);
+}
+/*# sourceMappingURL=style.css.map */

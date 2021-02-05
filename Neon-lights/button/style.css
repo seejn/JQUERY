@@ -1,0 +1,32 @@
+* 
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body
+{
+    background: black;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.button
+{
+    cursor: pointer;
+    font-size: 50px;
+    padding: 20px;
+    color: white;
+    transition: 0.2s;
+    box-shadow: -1px -1px #03e9f4;
+}
+.button:hover
+{
+    color: black;
+    background: #03e9f4;
+    box-shadow: 0 0 5px #03e9f4,
+                0 0 25px #03e9f4,
+                0 0 50px #03e9f4,
+                0 0 200px#03e9f4;
+}

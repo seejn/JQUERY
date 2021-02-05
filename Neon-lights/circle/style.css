@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.circle {
+  background: transparent;
+  padding: 100px;
+  border-radius: 50%;
+  border: 2px solid white;
+  -webkit-box-shadow: inset 0 0 5px #03ff57, 0 0 25px #03ff57, inset 0 0 50px #03ff57, 0 0 200px #03ff57;
+          box-shadow: inset 0 0 5px #03ff57, 0 0 25px #03ff57, inset 0 0 50px #03ff57, 0 0 200px #03ff57;
+  cursor: pointer;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  -webkit-animation-name: animate;
+          animation-name: animate;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+@-webkit-keyframes animate {
+  0%, 100% {
+    -webkit-box-shadow: inset 0 0 5px #03ff57, 0 0 25px #03ff57, inset 0 0 50px #03ff57, 0 0 200px #03ff57;
+            box-shadow: inset 0 0 5px #03ff57, 0 0 25px #03ff57, inset 0 0 50px #03ff57, 0 0 200px #03ff57;
+  }
+  25% {
+    -webkit-box-shadow: inset 0 0 5px #03a3ff, 0 0 25px #03a3ff, inset 0 0 50px #03a3ff, 0 0 200px #03a3ff;
+            box-shadow: inset 0 0 5px #03a3ff, 0 0 25px #03a3ff, inset 0 0 50px #03a3ff, 0 0 200px #03a3ff;
+  }
+  50% {
+    -webkit-box-shadow: inset 0 0 5px #ff3e03, 0 0 25px #ff0303, inset 0 0 50px #ff0303, 0 0 200px #ff0303;
+            box-shadow: inset 0 0 5px #ff3e03, 0 0 25px #ff0303, inset 0 0 50px #ff0303, 0 0 200px #ff0303;
+  }
+  75% {
+    -webkit-box-shadow: inset 0 0 5px #8503ff, 0 0 25px #8503ff, inset 0 0 50px #8503ff, 0 0 200px #8503ff;
+            box-shadow: inset 0 0 5px #8503ff, 0 0 25px #8503ff, inset 0 0 50px #8503ff, 0 0 200px #8503ff;
+  }
+}
+
+@keyframes animate {
+  0%, 100% {
+    -webkit-box-shadow: inset 0 0 5px #03ff57, 0 0 25px #03ff57, inset 0 0 50px #03ff57, 0 0 200px #03ff57;
+            box-shadow: inset 0 0 5px #03ff57, 0 0 25px #03ff57, inset 0 0 50px #03ff57, 0 0 200px #03ff57;
+  }
+  25% {
+    -webkit-box-shadow: inset 0 0 5px #03a3ff, 0 0 25px #03a3ff, inset 0 0 50px #03a3ff, 0 0 200px #03a3ff;
+            box-shadow: inset 0 0 5px #03a3ff, 0 0 25px #03a3ff, inset 0 0 50px #03a3ff, 0 0 200px #03a3ff;
+  }
+  50% {
+    -webkit-box-shadow: inset 0 0 5px #ff3e03, 0 0 25px #ff0303, inset 0 0 50px #ff0303, 0 0 200px #ff0303;
+            box-shadow: inset 0 0 5px #ff3e03, 0 0 25px #ff0303, inset 0 0 50px #ff0303, 0 0 200px #ff0303;
+  }
+  75% {
+    -webkit-box-shadow: inset 0 0 5px #8503ff, 0 0 25px #8503ff, inset 0 0 50px #8503ff, 0 0 200px #8503ff;
+            box-shadow: inset 0 0 5px #8503ff, 0 0 25px #8503ff, inset 0 0 50px #8503ff, 0 0 200px #8503ff;
+  }
+}
+/*# sourceMappingURL=style.css.map */

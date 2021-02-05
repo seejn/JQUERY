@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body
+        {
+            height: 100vh;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .para
+        {
+            border: 2px solid white;
+            padding: 10px;
+            position: absolute;
+            color: white;
+            top: 0;
+            left: 0;
+        }
+        button
+        {
+            margin: 20px 20px;
+            padding: 10px 25px;
+            text-transform: uppercase;
+            border: none;
+            outline: none;
+            font-size: 15px;
+            color: white;
+            font-weight: bold;
+            user-select: none;
+        }
+        button.toggle
+        {
+            color: black;
+        }
+        .neon button.Red
+        {
+            background-color: rgb(248, 19, 19);
+        }
+        .neon button.Red:active
+        {
+            background-color: rgb(145, 2, 2);
+        }
+        .neon button.Blue
+        {
+            background-color: rgb(3, 178, 247);
+        }
+        .neon button.Blue:active
+        {
+            background-color: rgb(8, 87, 190);
+        }
+        .neon button.Green
+        {
+            background-color: rgb(3, 247, 36);
+        }
+        .neon button.Green:active
+        {
+            background-color: rgb(0, 143, 48);
+        }
+        
+        .neon button.Yellow
+        {
+            background-color: rgb(188, 201, 12);
+        }
+        .neon button.Yellow:active
+        {
+            background-color: rgb(116, 124, 3);
+        }
+        .neon button.Reset
+        {
+            color: black;
+        }
+        
+        .neon button.Reset:active
+        {
+            background: rgb(161, 161, 161);
+            color: black;
+        }
+        .circle
+        {
+            background-color: transparent;
+            border: 2px solid white;
+            margin: 0 auto;
+            padding: 200px;
+            width: 65%;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="neon">
+        <div class="circle"></div>
+        <button class="Red">RED</button>
+        <button class="Blue">Blue</button>
+        <button class="Green">Green</button>
+        <button class="Yellow">Yellow</button>
+        <button class="Reset">Reset</button>
+    </div>
+   
+    <script  src="../../jquery-3.5.1.min.js"></script>
+    <script>
+        $("document").ready(function(){
+            $(".neon button.Red").click(function()
+            {
+                $(this).css(
+                    {
+                        "box-shadow": "0 0 5px rgb(248, 19, 19), 0 0 25px rgb(248, 19, 19), 0 0 50px rgb(248, 19, 19), 0 0 200px rgb(248, 19, 19)"
+                    });
+                $(".neon button.Blue").css(
+                    {
+                        "box-shadow":""
+                    });
+                $(".neon button.Green").css(
+                    {
+                        "box-shadow":""
+                    });
+                $(".neon button.Yellow").css(
+                    {
+                        "box-shadow":""
+                    });
+                $(".circle").css(
+                    {
+                        "border":"2px solid rgb(248, 19, 19)",
+                        "box-shadow":"inset 0 0 5px  rgb(248, 19, 19), 0 0 25px  rgb(248, 19, 19), inset 0 0 50px  rgb(248, 19, 19), 0 0 200px  rgb(248, 19, 19)"
+                    });
+            });
+            $(".neon button.Blue").click(function()
+            {
+                $(this).css(
+                    {                        
+                        "box-shadow":" 0 0 5px rgb(3, 178, 247), 0 0 25px rgb(3, 178, 247), 0 0 50px rgb(3, 178, 247), 0 0 200px rgb(3, 178, 247)"
+                    });
+                $(".neon button.Red").css(
+                    {
+                        "box-shadow":""
+                    });
+                $(".neon button.Green").css(
+                    {
+                        "box-shadow":""
+                    });
+                $(".neon button.Yellow").css(
+                    {
+                        "box-shadow":""
+                    });
+                $(".circle").css(
+                    {
+                        "border":"2px solid rgb(3, 178, 247)",
+                        "box-shadow":"inset 0 0 5px  rgb(3, 178, 247), 0 0 25px  rgb(3, 178, 247), inset 0 0 50px  rgb(3, 178, 247), 0 0 200px  rgb(3, 178, 247)"
+                    });
+            });
+            $(".neon button.Green").click(function()
+            {
+                $(this).css(
+                    {
+                        "box-shadow": "0 0 5px rgb(3, 247, 36), 0 0 25px rgb(3, 247, 36), 0 0 50px rgb(3, 247, 36), 0 0 200px rgb(3, 247, 36)"
+                    });
+                $(".neon button.Blue").css(
+                    {
+                        "box-shadow":""
+                    });
+                $(".neon button.Red").css(
+                    {
+                        "box-shadow":""
+                    });
+                $(".neon button.Yellow").css(
+                    {
+                        "box-shadow":""
+                    });
+                $(".circle").css(
+                    {
+                        "border":"2px solid rgb(3, 247, 36)",
+                        "box-shadow":"inset 0 0 5px  rgb(3, 247, 36), 0 0 25px  rgb(3, 247, 36), inset 0 0 50px  rgb(3, 247, 36), 0 0 200px  rgb(3, 247, 36)"
+                    });
+            });
+            
+            $(".neon button.Yellow").click(function()
+            {
+                $(this).css(
+                    {
+                        "box-shadow": "0 0 5px rgb(188, 201, 12), 0 0 25px rgb(188, 201, 12), 0 0 50px rgb(188, 201, 12), 0 0 200px rgb(188, 201, 12)"
+                    });
+                $(".neon button.Blue").css(
+                    {
+                        "box-shadow":""
+                    });
+                $(".neon button.Green").css(
+                    {
+                        "box-shadow":""
+                    });
+                $(".neon button.Red").css(
+                    {
+                        "box-shadow":""
+                    });
+                $(".circle").css(
+                    {
+                        "border":"2px solid rgb(188, 201, 12)",
+                        "box-shadow":"inset 0 0 5px  rgb(188, 201, 12), 0 0 25px  rgb(188, 201, 12), inset 0 0 50px  rgb(188, 201, 12), 0 0 200px  rgb(188, 201, 12)"
+                    });
+            });
+            $(".neon button.Reset").click(function()
+            {
+                $("button").css(
+                    {
+                        "box-shadow":""                        
+                    });
+                $(".circle").css(
+                    {
+                        "border":"2px solid white",
+                        "box-shadow":"0 0 white"
+                    });
+            });
+        });
+        
+       
+    </script>   
+</body>
+</html>

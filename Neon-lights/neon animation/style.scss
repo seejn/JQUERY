@@ -1,0 +1,74 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body
+{
+    height: 100vh;
+    background: black;
+}
+.line, .line1, .line2, .line3
+{
+    position: fixed;
+    animation: animate 5s linear infinite;
+    background: linear-gradient(to top, rgb(255, 70, 70), rgb(62, 62, 248));
+}
+.line
+{
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 10px;
+}
+.line1
+{
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 10px;
+}
+.line2
+{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+}
+.line3
+{
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+}
+@keyframes animate
+{
+    0%,100%
+    {
+        filter: hue-rotate(0deg);
+    }
+    50%
+    {
+        filter: hue-rotate(360deg);
+    }
+}
+.line:after ,.line1:after, .line2:after, .line3:after
+{
+    position: fixed;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgb(255, 70, 70), rgb(62, 62, 248));
+    filter: blur(30px);
+}
+.line:before, .line1:before, .line2:before, .line3:before
+{
+    position: fixed;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgb(255, 70, 70), rgb(62, 62, 248));
+    filter: blur(10px);
+}
