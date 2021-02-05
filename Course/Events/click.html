@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button
+        {
+            padding: 10px 20px;
+        }
+        button.mouseover
+        {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <button class="h1">Click Me</button>
+    <h1>Heading1</h1>
+    <button class="h2">Click Me</button>
+    <h2>Heading2</h2>
+    <button class="mouseover">Mouse Over</button>
+    <button class="mouseenter">Mouse Enter</button>
+    <script src="../../jquery-3.5.1.min.js"></script>
+    <script>
+        $("button.h1").click(function()
+        {
+            $("h1").css("color","red");
+        });
+        $("button.h2").dblclick(function()
+        {
+            $("h2").css("color","red");
+        });
+        $("button.mouseover").mouseover(function()
+        {
+            alert("Mouse is over the button")
+        });
+        $("button.mouseenter").mouseenter(function()
+        {
+            alert("Mouse entered the button")
+        });
+    </script>
+</body>
+</html>
