@@ -8,6 +8,42 @@ for(i = 0; i < colorButtons.length; i++)
 {
     colorButtons[i].disabled = true;
 }
+$("button#History").click(function()
+{
+    History();
+});
+function History()
+{
+    text = document.querySelector("#count");
+    if(text.innerText == "")
+    {
+        text.innerText = "(" + value.length + ")";
+        $("button#History").css("box-shadow", "0 0 5px white, 0 0 25px white, 0 0 50px white");
+        $(".History .historyButton button").css("display", "block");
+    }
+    else
+    {
+        text.innerText = "";
+        $("button#History").css("box-shadow", "0 0");
+        $(".History .historyButton button").css("display", "none");
+    }
+    // if($("span#count").text(""))
+    // {
+    //     $("span#count").text("(" + value.length +")");
+    // }
+    // else
+    // {
+    //     $("span#count").text("");
+    // }
+}
+function createList(clsname)
+{
+    var div = document.createElement("button");
+    div.innerHTML = clsname;
+    div.classList.add("history" + clsname);
+    div.classList.add("seejn");
+    document.querySelector(".historyButton").appendChild(div);
+}
 //record the order of button clicked
 $("#Record").click(function()
 {      
@@ -21,7 +57,7 @@ $("#Record").click(function()
         document.querySelector("#Stop").disabled = false;
         colorButtonsEnabled();
         $("header").css("visibility","visible");
-        buttons();
+        // buttons();
         playDisabled();
     }
     else
@@ -48,70 +84,28 @@ $("#Stop").click(function()
 
 $("#Play").click(function()
 {
-    value.forEach(circle);
-    // let len = value.length;
-    // alert(len);
-    // for(i = 0; i < len; i++)
-    // {
-    //     alert(value[i]);
-    // }
-});  
+    alert(value.length);
+    value.forEach(circleAnimation);
+});
 $("#Reset").click(function()
 {
-    // count = 0;
-    // value.length = 0;
-    // playDisabled();
-    // $(".circle").css(
-    //     {
-    //         "border":"2px solid white",
-    //         "box-shadow":"0 0 white"
-    //     });
+    count = 0;
+    value.length = 0;
+    playDisabled();
+    $(".circle").css(
+        {
+            "border":"2px solid white",
+            "box-shadow":"0 0 white"
+        });
+    $(".seejn").remove();
+    $("button#History").css("box-shadow", "0 0");
+    text.innerText = "";
 });  
-function circle(e)
+function circleAnimation(e)
 { 
-    // var animationCount = 0;
-    // var id = setInterval(frame);
-    // function frame()
-    // {
-    //     if (animationCount == count) 
-    //     {
-    //         clearInterval(id);
-    //     }
-    //     else 
-    //     {
-    //         if(e == "Red")
-    //         {
-    //             $(".circle").css({  
-    //                 "border":"2px solid rgb(248, 19, 19)",
-    //                 "box-shadow":"inset 0 0 5px  rgb(248, 19, 19), 0 0 25px  rgb(248, 19, 19), inset 0 0 50px  rgb(248, 19, 19), 0 0 200px  rgb(248, 19, 19)"
-    //             });
-    //         }
-    //         else if(e == "Blue")
-    //         {
-    //             $(".circle").css({
-    //                 "border":"2px solid rgb(3, 178, 247)",
-    //                 "box-shadow":"inset 0 0 5px  rgb(3, 178, 247), 0 0 25px  rgb(3, 178, 247), inset 0 0 50px  rgb(3, 178, 247), 0 0 200px  rgb(3, 178, 247)"
-    //             });
-    //         }
-    //         else if(e == "Green")
-    //         {
-    //             $(".circle").css({ 
-    //                 "border":"2px solid rgb(3, 247, 36)",
-    //                 "box-shadow":"inset 0 0 5px  rgb(3, 247, 36), 0 0 25px  rgb(3, 247, 36), inset 0 0 50px  rgb(3, 247, 36), 0 0 200px  rgb(3, 247, 36)"
-    //             });
-    //         }
-    //         else if(e == "Yellow")
-    //         {
-    //             $(".circle").css({ 
-    //                 "border":"2px solid rgb(188, 201, 12)",
-    //                 "box-shadow":"inset 0 0 5px  rgb(188, 201, 12), 0 0 25px  rgb(188, 201, 12), inset 0 0 50px  rgb(188, 201, 12), 0 0 200px  rgb(188, 201, 12)"
-    //             });
-    //         }
-    //         animationCount++;
-    //     }
-    // }
     alert(e);
 }
+click();
 function click()
 {
     $(".neon button.Red").click(function()
@@ -212,36 +206,33 @@ function click()
                     });
             });
 }
-function buttons()
+function Red()
 {
-    let red = $("button.Red").html();
-    let blue = $("button.Blue").html();
-    let green = $("button.Green").html();
-    let yellow = $("button.Yellow").html();
-        $("button.Red").click(function()
-        {
-            value[count] = red;
-            count++;
-            console.log(value[count]);
-        });
-        $("button.Blue").click(function()
-        {
-            value[count] = blue;
-            count++;
-            console.log(value[count]);
-        });
-        $("button.Green").click(function()
-        {
-            value[count] = green;
-            count++;
-            console.log(value[count]);
-        });
-        $("button.Yellow").click(function()
-        {
-            value[count] = yellow;
-            count++;
-            console.log(value[count]);
-        });   
+    value[count] = "Red";
+    count++;
+    var clsName = document.querySelector("#Red").id;
+    createList(clsName);
+}
+function Blue()
+{
+    value[count] = "Blue";
+    count++;
+    var clsName = document.querySelector("#Blue").id;
+    createList(clsName);
+}
+function Green()
+{
+    value[count] = "Green";
+    count++;
+    var clsName = document.querySelector("#Green").id;
+    createList(clsName);
+}
+function Yellow()
+{
+    value[count] = "Yellow";
+    count++;
+    var clsName = document.querySelector("#Yellow").id;
+    createList(clsName);
 }
 function playDisabled()
 {
@@ -343,4 +334,3 @@ function colorButtonsEnabled()
         $(this).css("background","rgb(188, 201, 12)");
     });
 }
-click();
