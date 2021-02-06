@@ -1,0 +1,105 @@
+
+        *
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+        }
+        body
+        {
+            height: 100vh;
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+        header
+        {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            visibility: hidden;
+        }
+        header h1
+        {
+            margin-left: 10px;
+            color: white;
+        }
+        header i.recordIcon
+        {
+            border-radius: 55%;
+            overflow: hidden;
+            animation-name: recording;
+            animation-duration: 0.8s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+        }
+/*Recording Animation*/
+        @keyframes recording
+        {
+            0%
+            {
+                border: 2px solid red;
+                background-color: black;
+            }
+            50%
+            {
+                border: 2px solid white;
+                background-color: red;
+                box-shadow: 0 0 5px red,
+                            0 0 25px red,
+                            0 0 50px red,
+                            0 0 50px red,
+                            0 0 50px red,
+                            0 0 50px red,
+                            0 0 50px red,
+                            0 0 100px red,
+                            0 0 100px red,
+                            0 0 100px red,
+                            0 0 100px red;
+            }
+            100%
+            {
+                border: 2px solid red;
+                background-color: black;
+            }
+        }
+/*animation code finished*/
+        button
+        {
+            margin: 20px 20px;
+            padding: 10px 25px;
+            text-transform: uppercase;
+            border: none;
+            outline: none;
+            font-size: 15px;
+            color: white;
+            font-weight: bold;
+            user-select: none;
+            cursor: pointer;
+        }
+        .functionButton:hover
+        {
+            box-shadow: 0 0 5px white, 0 0 25px white, 0 0 50px white;
+        }
+        .neon button.functionButton
+        {
+            color: black;
+        }
+        
+        .neon button.functionButton:active
+        {
+            background: rgb(161, 161, 161);
+            color: black;
+        }
+        .circle
+        {
+            background-color: transparent;
+            border: 2px solid white;
+            margin: 0 auto;
+            padding: 200px;
+            width: 65%;
+            border-radius: 50%;
+        }
