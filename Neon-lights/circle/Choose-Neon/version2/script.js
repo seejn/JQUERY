@@ -4,7 +4,7 @@ let colorButtons = document.querySelectorAll(".colorButton");
 document.querySelector("#Stop").disabled = true;
 playDisabled();
 colorButtonsDisabled();
-for(i = 0; i < colorButtons.length; i++)
+for(var i = 0; i < colorButtons.length; i++)
 {
     colorButtons[i].disabled = true;
 }
@@ -47,18 +47,19 @@ function createList(clsname)
 //record the order of button clicked
 $("#Record").click(function()
 {      
-    for(i = 0; i < colorButtons.length; i++)
+    for(var i = 0; i < colorButtons.length; i++)
     {
         colorButtons[i].disabled = false;
     }
     if(colorButtons[0].disabled == false)
     {  
-        document.querySelector("#Record").disabled = true;
+        recordDisabled();
         document.querySelector("#Stop").disabled = false;
         colorButtonsEnabled();
         $("header").css("visibility","visible");
         // buttons();
         playDisabled();
+        document.querySelector("#circle").className = "circle";
     }
     else
     {
@@ -66,49 +67,101 @@ $("#Record").click(function()
     }
 });
 
+function recordDisabled()
+{
+    if(document.querySelector("#Record").disabled == false)
+        document.querySelector("#Record").disabled = true;
+    else
+        document.querySelector("#Record").disabled = false
+}
 $("#Stop").click(function()
 {
-    document.querySelector("#Record").disabled = false;
-    document.querySelector("#Stop").disabled = true;
+    recordDisabled();
+    stopDisabled();
     playDisabled();
     $("header").css("visibility","hidden");
-    for(i = 0; i < colorButtons.length; i++)
+    for(var i = 0; i < colorButtons.length; i++)
         colorButtons[i].disabled = true; 
-    colorButtonsDisabled();
-    $(".circle").css(
-        {
-            "border":"2px solid white",
-            "box-shadow":"0 0 white"
-        });
+    colorButtonsDisabled();    
+    $(".circle").attr("style", "");
+    document.querySelector("#circle").className = "circle";
 }); 
-
+function stopDisabled()
+{
+    if(document.querySelector("#Stop").disabled == false)
+        document.querySelector("#Stop").disabled = true;
+    else
+        document.querySelector("#Stop").disabled = false
+}
 $("#Play").click(function()
 {
-    alert(value.length);
-    value.forEach(circleAnimation);
+    recordDisabled();
+    stopDisabled();
+    circleAnimation()
 });
+function playDisabled()
+{    
+    $("#Stop").attr("style", "");
+  
+    if(value.length != 0)
+    {
+        document.querySelector("#Play").disabled = false;
+    }
+    else
+    { 
+        document.querySelector("#Play").disabled = true;
+        document.querySelector("#Play").style.boxShadow = "0 0";
+    }
+}
 $("#Reset").click(function()
 {
     count = 0;
     value.length = 0;
     playDisabled();
-    $(".circle").css(
-        {
-            "border":"2px solid white",
-            "box-shadow":"0 0 white"
-        });
+    stopDisabled();
+    recordDisabled();
+    $(".circle").attr("style", "");
     $(".seejn").remove();
     $("button#History").css("box-shadow", "0 0");
-    text.innerText = "";
-});  
-function circleAnimation(e)
-{ 
-    alert(e);
+    document.querySelector("#count").innerText = "";
+    document.querySelector("#circle").className = "circle";
+}); 
+function circleAnimation()
+{
+    let circle = document.querySelector("#circle");
+    let j = 0;
+    let len = value.length;
+    let cls;
+    let termination = setInterval(function()
+    {
+        animation();
+    },2000); 
+    $("#Stop").click(function()
+    {
+        clearInterval(termination);
+    });
+    function animation()
+    {
+        if(j != len)
+        {
+            console.log(j);
+            console.log(len);
+            cls = value[j].innerHTML;
+            console.log(cls);
+            circle.classList = "circle" + cls;
+            j++;
+        }
+        else
+        {
+            alert("Animation Ended.");
+            clearInterval(termination);
+        }
+    }
 }
 click();
 function click()
 {
-    $(".neon button.Red").click(function()
+             $(".neon button.Red").mouseup(function()
             {
                 $(this).css(
                     {
@@ -132,7 +185,12 @@ function click()
                         "box-shadow":"inset 0 0 5px  rgb(248, 19, 19), 0 0 25px  rgb(248, 19, 19), inset 0 0 50px  rgb(248, 19, 19), 0 0 200px  rgb(248, 19, 19)"
                     });
             });
-            $(".neon button.Blue").click(function()
+            $(".neon button.Red").mousedown(function()
+            {
+                $(".circle").attr("style", "");
+
+            });
+            $(".neon button.Blue").mouseup(function()
             {
                 $(this).css(
                     {                        
@@ -156,7 +214,12 @@ function click()
                         "box-shadow":"inset 0 0 5px  rgb(3, 178, 247), 0 0 25px  rgb(3, 178, 247), inset 0 0 50px  rgb(3, 178, 247), 0 0 200px  rgb(3, 178, 247)"
                     });
             });
-            $(".neon button.Green").click(function()
+            $(".neon button.Blue").mousedown(function()
+            {
+                $(".circle").attr("style", "");
+
+            });
+            $(".neon button.Green").mouseup(function()
             {
                 $(this).css(
                     {
@@ -180,8 +243,13 @@ function click()
                         "box-shadow":"inset 0 0 5px  rgb(3, 247, 36), 0 0 25px  rgb(3, 247, 36), inset 0 0 50px  rgb(3, 247, 36), 0 0 200px  rgb(3, 247, 36)"
                     });
             });
+            $(".neon button.Green").mousedown(function()
+            {
+                $(".circle").attr("style", "");
+
+            });
             
-            $(".neon button.Yellow").click(function()
+            $(".neon button.Yellow").mouseup(function()
             {
                 $(this).css(
                     {
@@ -205,41 +273,43 @@ function click()
                         "box-shadow":"inset 0 0 5px  rgb(188, 201, 12), 0 0 25px  rgb(188, 201, 12), inset 0 0 50px  rgb(188, 201, 12), 0 0 200px  rgb(188, 201, 12)"
                     });
             });
+            $(".neon button.Yellow").mousedown(function()
+            {
+                $(".circle").attr("style", "");
+            });
 }
 function Red()
 {
-    value[count] = "Red";
-    count++;
-    var clsName = document.querySelector("#Red").id;
+    value[count] = document.querySelector("#Red");
+    var clsName = value[count].id;
     createList(clsName);
+    count++;
 }
 function Blue()
 {
-    value[count] = "Blue";
-    count++;
-    var clsName = document.querySelector("#Blue").id;
+    value[count] = document.querySelector("#Blue");
+    var clsName = value[count].id;
     createList(clsName);
+    count++;
 }
 function Green()
 {
-    value[count] = "Green";
-    count++;
-    var clsName = document.querySelector("#Green").id;
+    value[count] = document.querySelector("#Green");
+    var clsName = value[count].id;
     createList(clsName);
+    count++;
 }
 function Yellow()
 {
-    value[count] = "Yellow";
-    count++;
-    var clsName = document.querySelector("#Yellow").id;
+    value[count] = document.querySelector("#Yellow");
+    var clsName = value[count].id;
     createList(clsName);
+    count++;
 }
 function playDisabled()
-{
-    $("#Stop").css(
-        {
-            "box-shadow":"0 0"
-        });    
+{    
+    $("#Stop").attr("style", "");
+  
     if(value.length != 0)
     {
         document.querySelector("#Play").disabled = false;

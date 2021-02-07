@@ -108,7 +108,7 @@
                 background-color: black;
             }
         }
-/*animation code finished*/
+/*Recording animation code finished*/
         button
         {
             margin: 20px 20px;
@@ -126,10 +126,6 @@
         {
             color: black;
         }
-        .functionButton:hover
-        {
-            box-shadow: 0 0 5px white, 0 0 25px white, 0 0 50px white;
-        }
         .neon button.functionButton
         {
             color: black;
@@ -140,7 +136,7 @@
             background: rgb(161, 161, 161);
             color: black;
         }
-        .circle
+        #circle
         {
             background-color: transparent;
             border: 2px solid white;
@@ -149,3 +145,27 @@
             width: 65%;
             border-radius: 50%;
         }
+         .circleRed
+        {
+            transition: 1s ease-in-out;
+            border: 2px solid rgb(248, 19, 19);
+            box-shadow: inset 0 0 5px  rgb(248, 19, 19), 0 0 25px  rgb(248, 19, 19), inset 0 0 50px  rgb(248, 19, 19), 0 0 200px  rgb(248, 19, 19);
+        }
+        .circleBlue
+        {
+            transition: 1s ease-in-out;
+            border: 2px solid rgb(3, 178, 247);
+            box-shadow: inset 0 0 5px  rgb(3, 178, 247), 0 0 25px  rgb(3, 178, 247), inset 0 0 50px  rgb(3, 178, 247), 0 0 200px  rgb(3, 178, 247);
+        }
+        .circleGreen
+        {
+            transition: 1s ease-in-out;
+            border: 2px solid rgb(3, 247, 36);
+            box-shadow: inset 0 0 5px  rgb(3, 247, 36), 0 0 25px  rgb(3, 247, 36), inset 0 0 50px  rgb(3, 247, 36), 0 0 200px  rgb(3, 247, 36);
+        }
+        .circleYellow
+        {
+            transition: 1s ease-in-out;
+            border: 2px solid rgb(188, 201, 12);
+            box-shadow: inset 0 0 5px  rgb(188, 201, 12), 0 0 25px  rgb(188, 201, 12), inset 0 0 50px  rgb(188, 201, 12), 0 0 200px  rgb(188, 201, 12);
+        } 
