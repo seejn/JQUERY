@@ -18,10 +18,18 @@
 <body>
     <button class="h1">Click Me</button>
     <h1>Heading1</h1>
-    <button class="h2">Click Me</button>
+    <button class="h2">Double Click</button>
     <h2>Heading2</h2>
     <button class="mouseover">Mouse Over</button>
-    <button class="mouseenter">Mouse Enter</button>
+    <button class="mouseenter">Mouse Enter</button>    
+    <button class="mouseleave">Mouse Leave</button>
+    <button class="mousedown">Mouse Down</button>
+    <button class="mouseup">Mouse Up</button>
+    <button class="hover">Mouse Hover</button>
+    <button class="active">Mouse Active</button>
+    <br><br>
+    <input type="text">
+    <p>Keypress Count:<span id="count"></span></p>
     <script src="../../jquery-3.5.1.min.js"></script>
     <script>
         $("button.h1").click(function()
@@ -39,6 +47,76 @@
         $("button.mouseenter").mouseenter(function()
         {
             alert("Mouse entered the button")
+        });
+        $("button.mouseleave").mouseleave(function()
+        {
+            alert("Mouse left the button")
+        });
+        //active effect use of both mouseup and mousedown event 
+        $("button.mousedown").mousedown(function()
+        {
+            alert("Mouse is down.")
+        });
+        $("button.mouseup").mouseup(function()
+        {
+            alert("Mouse is up.")
+        });
+        //active effect
+        $("button.active").on(
+            {
+                mousedown: function()
+                {
+                    $(this).css("background", "grey");
+                },        
+                mouseup: function()
+                {
+                    $(this).css("background", "white");
+                }
+            });
+
+        //hover effect
+        $("button.hover").hover(function()
+        {
+            alert("mouse entered.");
+        },
+        function(){
+            alert("mouse left.");
+        });
+
+        //keypress
+        function keyPress()
+        {
+            let i = 0;
+            // keyup, keyPress
+            $("input").keydown(function(event)
+            {
+                if(event.keyCode === 8)
+                {
+                    if(i > 0)
+                    {
+                        i--;
+                        $("#count").text(i);
+                    }
+                }
+                else
+                { 
+                    i++;
+                    $("#count").text(i);
+                }
+            });
+        } 
+        keyPress();
+        $("input").focus(function()
+        {
+            $(this).css(
+                "background", "green"
+            )
+        });
+        $("input").blur(function()
+        {
+            $(this).css(
+                "background", "blue"
+            )
         });
     </script>
 </body>

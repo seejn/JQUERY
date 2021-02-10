@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *
+        {
+            margin: 0;
+            padding: 10px;
+            box-sizing: border-box; 
+        }
+        button
+        {
+            padding: 10px 20px;
+        }
+        input
+        {
+            margin: 15px;
+            padding: 10px 20px;
+        }
+        p{
+            margin: 15px;
+        }
+        .block
+        {
+            margin: 20px 0;
+            padding: 50px;
+            width: fit-content;
+            background-color: black;
+            color: white;
+        }
+    </style>
+    <title>FADE IN FADE OUT</title>
+</head>
+<body>
+    <button class="fadeOut">FADE OUT</button>
+    <button class="fadeIn">FADE IN</button>
+    <button class="fadeInOut">FADE IN OUT</button>
+    <br>
+    <div class="input">
+        <input type="text">
+        <br>
+        <p>KEYPRESS: <span></span></p>
+    </div>
+    <button class="fadeTo">FADE TO</button>
+    <div class="block">HELLO WORLD!</div>
+    <script src="../../jquery-3.5.1.min.js"></script>
+    <script>
+        $(".fadeOut").click(function()
+        {
+            fadeINOUT(this.className)
+        });
+        $(".fadeIn").click(function()
+        {
+            fadeINOUT(this.className)
+        });
+        $(".fadeInOut").click(function()
+        {
+            fadeINOUT(this.className)
+        });
+        function fadeINOUT(classname)
+        {
+            if(classname == "fadeOut")                
+                $(".input").fadeOut(500);
+            else if(classname == "fadeIn")
+                $(".input").fadeIn(500);
+            else
+                $(".input").fadeToggle(500);
+        }
+        $("input").on(
+        {
+            keyup: function()
+            {
+                var count = $(this).val();
+                $("span").text(count.length);
+            },
+            keydown: function()
+            {
+                var count = $(this).val();
+                $("span").text(count.length);
+            }
+        });
+        $(".fadeTo").click(function()
+        {
+            $("div.block").fadeTo(1000,0.5);
+        });
+    </script>
+</body>
+</html>

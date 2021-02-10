@@ -118,7 +118,6 @@ $("#Reset").click(function()
     count = 0;
     value.length = 0;
     playDisabled();
-    stopDisabled();
     recordDisabled();
     $(".circle").attr("style", "");
     $(".seejn").remove();

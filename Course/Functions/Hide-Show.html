@@ -11,6 +11,10 @@
             padding: 0;
             box-sizing: border-box;
         }
+        button
+        {
+            padding: 10px 20px;
+        }
         .block
         {
             border: 2px solid black;
@@ -21,11 +25,35 @@
     </style>
 </head>
 <body>
-    <button>Click Me</button>
+    <button class="hide">HIDE</button>
+    <button class="show">SHOW</button>
+    <button class="toggle">TOGGLE</button>
     <div class="block"></div>
-    <script src="../jquery-3.5.1.min.js"></script>
+    <script src="../../jquery-3.5.1.min.js"></script>
     <script>
-        
+        //function hide, show, toggle
+        $("button.show").click(function()
+        {
+            hideShow(this.className);
+        });
+        $("button.hide").click(function()
+        {
+            hideShow(this.className);            
+        });
+        $("button.toggle").click(function()
+        {
+            hideShow(this.className);
+        });
+        function hideShow(classname)
+        {
+            if(classname == "show")
+                $(".block").show(200);
+            else if(classname == "hide")
+                $(".block").hide(200);
+            else
+                $(".block").toggle(200);   
+        }
+        //
     </script>
 </body>
 </html>
